@@ -25,5 +25,6 @@ public class Ut {
             System.out.println(p.val);
             p = p.next;
         }
+        System.out.println();
     }
 }

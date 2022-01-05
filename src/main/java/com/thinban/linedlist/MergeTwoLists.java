@@ -11,7 +11,7 @@ import com.thinban.base.Ut;
  */
 public class MergeTwoLists {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        //
+        //双指针思想
         ListNode p = new ListNode();
         ListNode head = p;
         while (list1 != null && list2 != null) {
@@ -34,17 +34,17 @@ public class MergeTwoLists {
             }
         }
         //补充剩下的
-        if (list1 == null) {
-            p = list2;
+        if (list1 != null) {
+            p.next = list1;
         }
-        if (list2 == null) {
-            p = list1;
+        if (list2 != null) {
+            p.next = list2;
         }
-        return head.next != null ? head.next : null;
+        return head.next == null ? null : head.next;
     }
 
     public static void main(String[] args) {
-//        Ut.printListNode(new MergeTwoLists().mergeTwoLists(Ut.buildListNode(1, 2, 4), Ut.buildListNode(1, 3, 4)));
-        Ut.printListNode(new MergeTwoLists().mergeTwoLists(null, null));
+        Ut.printListNode(new MergeTwoLists().mergeTwoLists(Ut.buildListNode(1, 2, 4), Ut.buildListNode(1, 3, 4)));
+        Ut.printListNode(new MergeTwoLists().mergeTwoLists(null, Ut.buildListNode(0)));
     }
 }
