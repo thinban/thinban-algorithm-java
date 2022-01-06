@@ -5,10 +5,10 @@ import com.thinban.base.Ut;
 
 /**
  * 删除链表的倒数第 N 个结点
+ * 原理：设置间隔为n的双指针，若q==null,说明移除首节点；否则同时移动pq，直到q.next==null,此时移除p.next即可
  */
 public class RemoveNthFromEnd {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        //思想：设置间隔为n的双指针，若q==null,说明移除首节点；否则同时移动pq，直到q.next==null,此时移除p.next即可
         ListNode p = head;
         ListNode q = head;
         for (int i = 0; i < n; i++) {

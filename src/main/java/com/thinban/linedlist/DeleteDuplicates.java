@@ -5,6 +5,7 @@ import com.thinban.base.Ut;
 
 /**
  * 删除重复节点
+ * 原理：一个指针，判断指针及其后一个节点的值是否相同，相同则移除下一个节点，否则移动指针。
  */
 public class DeleteDuplicates {
     public ListNode deleteDuplicates(ListNode head) {

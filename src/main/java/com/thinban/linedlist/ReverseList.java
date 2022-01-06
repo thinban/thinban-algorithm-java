@@ -4,12 +4,15 @@ import com.thinban.base.ListNode;
 import com.thinban.base.Ut;
 
 /**
+ * 反转链表
+ * 思路：1. 新增头结点，遍历插入。 2.新增头结点，元素调换位置。 3. 三个指针  4.递归
+ *
  * @author chenshengbin
  * @date 2022/1/5 14:04
  */
 public class ReverseList {
     public ListNode reverseList(ListNode head) {
-        //四种思路：1. 新增头结点，遍历插入。 2.新增头结点，元素调换位置。 3. 三个指针  4.递归
+        //
         ListNode p = null, q = head, n = null;
         while (q != null) {
             //存
