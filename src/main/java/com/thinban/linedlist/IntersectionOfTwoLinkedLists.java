@@ -6,6 +6,7 @@ import com.thinban.base.Ut;
 /**
  * 链表相交
  * https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
+ * 原理：两个指针，通过循环（尾部后指向另一个链表）消除距离差，最终到达相交点或者指向最后的null
  *
  * @author chenshengbin
  * @date 2022/1/4 10:18
