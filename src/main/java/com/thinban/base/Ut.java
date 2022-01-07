@@ -1,5 +1,7 @@
 package com.thinban.base;
 
+import java.util.Arrays;
+
 /**
  * @author chenshengbin
  * @date 2022/1/4 10:43
@@ -25,13 +27,23 @@ public class Ut {
     }
 
     public static void printListNode(ListNode p, boolean enter) {
-        while (p != null) {
-            if (enter) {
-                System.out.println(p.val);
-            } else {
-                System.out.print(p.val);
+        printListNode(new ListNode[]{p}, enter);
+    }
+
+    public static void printListNode(ListNode[] p) {
+        printListNode(p, false);
+    }
+
+    public static void printListNode(ListNode[] pp, boolean enter) {
+        for (ListNode p : pp) {
+            while (p != null) {
+                if (enter) {
+                    System.out.println(p.val);
+                } else {
+                    System.out.print(p.val);
+                }
+                p = p.next;
             }
-            p = p.next;
         }
         System.out.println();
     }
