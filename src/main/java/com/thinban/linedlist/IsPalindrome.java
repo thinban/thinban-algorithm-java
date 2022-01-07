@@ -3,32 +3,33 @@ package com.thinban.linedlist;
 import com.thinban.base.ListNode;
 import com.thinban.base.Ut;
 
+import java.util.Stack;
+
+/**
+ * 判断链表是否回文
+ */
 public class IsPalindrome {
     public boolean isPalindrome(ListNode head) {
-        //todo  反转后head.next=null
-        ListNode r = revert(t.next);
-        while (head != null && r != null) {
-            if (head.val != r.val) {
-                return false;
-            }
+        Stack<Integer> s1 = new Stack<>();
+        ListNode t = head;
+        while (head != null) {
+            s1.push(head.val);
             head = head.next;
-            r = r.next;
+        }
+        if (s1.size() < 1) return false;
+        //比较
+        while (t != null) {
+            if (s1.pop() != t.val) return false;
+            t = t.next;
         }
         return true;
     }
 
-    public static ListNode revert(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
-        ListNode h = revert(head.next);
-        head.next.next = head;
-        head.next = null;
-        return h;
-    }
-
     public static void main(String[] args) {
-//        System.out.println(new IsPalindrome().isPalindrome(Ut.buildListNode(1, 2, 2, 1)));
+        System.out.println(new IsPalindrome().isPalindrome(Ut.buildListNode(1, 2, 2, 1)));
         System.out.println(new IsPalindrome().isPalindrome(Ut.buildListNode(1, 3, 2, 1)));
+        System.out.println(new IsPalindrome().isPalindrome(Ut.buildListNode()));
+        System.out.println(new IsPalindrome().isPalindrome(Ut.buildListNode(1)));
+        System.out.println(new IsPalindrome().isPalindrome(Ut.buildListNode(1, 2)));
     }
 }
