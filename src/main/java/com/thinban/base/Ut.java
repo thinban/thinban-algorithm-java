@@ -21,8 +21,16 @@ public class Ut {
     }
 
     public static void printListNode(ListNode p) {
+        printListNode(p, true);
+    }
+
+    public static void printListNode(ListNode p, boolean enter) {
         while (p != null) {
-            System.out.println(p.val);
+            if (enter) {
+                System.out.println(p.val);
+            } else {
+                System.out.print(p.val);
+            }
             p = p.next;
         }
         System.out.println();
