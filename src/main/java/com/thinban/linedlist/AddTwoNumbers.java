@@ -64,7 +64,7 @@ public class AddTwoNumbers {
     }
 
     public static void main(String[] args) {
-//        Ut.printListNode(new AddTwoNumbers().addTwoNumbers(Ut.buildListNode(5), Ut.buildListNode(5)), false);
+        Ut.printListNode(new AddTwoNumbers().addTwoNumbers(Ut.buildListNode(5), Ut.buildListNode(5)), false);
         Ut.printListNode(new AddTwoNumbers().addTwoNumbers(Ut.buildListNode(1), Ut.buildListNode(9, 9)), false);
         Ut.printListNode(new AddTwoNumbers().addTwoNumbers(Ut.buildListNode(5, 6, 4), Ut.buildListNode(7, 2, 4, 3)), false);
     }
