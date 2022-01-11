@@ -38,3 +38,66 @@ git rm -r --cached . 一、数据结构相关#
 4. 用栈实现括号匹配
 5. 数组中元素与下一个比它大的元素之间的距离
 6. 循环数组中比当前元素大的下一个元素
+## 二分法
+```
+//左闭右开型
+public int search(int[] nums, int target) {
+	int left = 0, right = nums.length;
+	while (left < right) {
+		int mid = left + ((right - left) >> 1);
+		if (nums[mid] == target)
+			return mid;
+		else if (nums[mid] < target)
+			left = mid + 1;
+		else if (nums[mid] > target)
+			right = mid;
+	}
+	return -1;
+}
+```
+
+## 双指针法（快慢指针法）
+```
+//通过一个快指针和慢指针在一个for循环下完成两个for循环的工作。
+public int removeElement(int[] nums, int val) {
+	// 快慢指针
+	int fastIndex = 0;
+	int slowIndex;
+	for (slowIndex = 0; fastIndex < nums.length; fastIndex++) {
+		if (nums[fastIndex] != val) {
+			nums[slowIndex] = nums[fastIndex];
+			slowIndex++;
+		}
+	}
+	return slowIndex;
+
+}
+
+```
+
+## 滑动窗口
+
+```
+//求子数组的题
+int minSubArrayLen(int s, vector<int>& nums) {
+	int result = INT32_MAX;
+	int sum = 0; // 滑动窗口数值之和
+	int i = 0; // 滑动窗口起始位置
+	int subLength = 0; // 滑动窗口的长度
+	for (int j = 0; j < nums.size(); j++) {
+		sum += nums[j];
+		// 注意这里使用while，每次更新 i（起始位置），并不断比较子序列是否符合条件
+		while (sum >= s) {
+			subLength = (j - i + 1); // 取子序列的长度
+			result = result < subLength ? result : subLength;
+			sum -= nums[i++]; // 这里体现出滑动窗口的精髓之处，不断变更i（子序列的起始位置）
+		}
+	}
+	// 如果result没有被赋值的话，就返回0，说明没有符合条件的子序列
+	return result == INT32_MAX ? 0 : result;
+    }
+```
+
+
+-------------------------------------
+处理有序数组，多考虑双指针(快慢、二分）
